@@ -1,7 +1,24 @@
 "use strict";
 
-module.exports.addNote = function() {
-  console.log('addNote');
-  return 'New note';
+let addNote = (title, body) => {
+  console.log("Adding note...", title, body);
 };
 
+let getAll = () => {
+  console.log("Getting all notes...");
+};
+
+let getNote = (title) => {
+  console.log(`Getting the note "${title}"...`);
+};
+
+let removeNote = (title) => {
+  console.log(`Removing the note "${title}"...`);
+}
+
+module.exports = {
+  addNote,
+  getAll,
+  getNote,
+  removeNote
+};
