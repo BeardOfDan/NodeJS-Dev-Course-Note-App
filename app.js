@@ -18,9 +18,7 @@ switch(command) {
     let note = notes.addNote(argv.title, argv.body);
     if (note) {
       console.log("The note was successfully created!");
-      console.log("==================================");
-      console.log(`${note.title}:`);
-      console.log(note.body);
+      notes.logNote(note);
     } else {
       console.log("There is already a note of that title!");
     }
@@ -29,7 +27,12 @@ switch(command) {
     notes.getAll();
     break;
   case "read":
-    notes.getNote(argv.title);
+    let thisNote = notes.getNote(argv.title);
+    if (thisNote) {
+      notes.logNote(thisNote);
+    } else {
+      console.log("Note not found!");
+    }
     break;
   case "remove":
     let removed = notes.removeNote(argv.title);
