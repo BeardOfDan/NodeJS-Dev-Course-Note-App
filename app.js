@@ -15,7 +15,15 @@ console.log("Yargs", argv);
 
 switch(command) {
   case "add":
-    notes.addNote(argv.title, argv.body);
+    let note = notes.addNote(argv.title, argv.body);
+    if (note) {
+      console.log("The note was successfully created!");
+      console.log("==================================");
+      console.log(`${note.title}:`);
+      console.log(note.body);
+    } else {
+      console.log("There is already a note of that title!");
+    }
     break;
   case "list":
     notes.getAll();
