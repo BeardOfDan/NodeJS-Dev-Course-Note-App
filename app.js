@@ -32,7 +32,12 @@ switch(command) {
     notes.getNote(argv.title);
     break;
   case "remove":
-    notes.removeNote(argv.title);
+    let removed = notes.removeNote(argv.title);
+    if (removed) {
+      console.log("The note was removed");
+    } else {
+      console.log("The note was not found");
+    }
     break;
   case undefined:
   case "":

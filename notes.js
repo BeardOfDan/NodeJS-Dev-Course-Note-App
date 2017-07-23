@@ -38,7 +38,7 @@ let addNote = (title, body) => {
     // console.log("Note Was A Duplicate!");
   }
 
-};
+}; // end of addNote = (title, body)
 
 let getAll = () => {
   console.log("Getting all notes...");
@@ -49,8 +49,17 @@ let getNote = (title) => {
 };
 
 let removeNote = (title) => {
-  console.log(`Removing the note "${title}"...`);
-}
+  let notes = fetchNotes();
+
+  let filteredNotes = notes.filter((note) => {
+    return note.title !== title;
+  });
+
+  saveNotes(filteredNotes);
+
+  // returns if note was erased or not
+  return notes.length !== filteredNotes.length;
+};
 
 module.exports = {
   addNote,
