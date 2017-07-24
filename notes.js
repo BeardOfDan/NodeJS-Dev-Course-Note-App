@@ -32,16 +32,14 @@ let addNote = (title, body) => {
     notes.push(note);
     saveNotes(notes);
     return note;
-    // console.log("Note Was Successfully Added");
   } else {
     // there was already a note with that title
-    // console.log("Note Was A Duplicate!");
   }
 
 }; // end of addNote = (title, body)
 
 let getAll = () => {
-  console.log("Getting all notes...");
+  return fetchNotes();
 };
 
 let getNote = (title) => {
@@ -66,7 +64,7 @@ let removeNote = (title) => {
 };
 
 let logNote = (note) => {
-  console.log("==================================");
+  console.log("============");
   console.log(`${note.title}:`);
   console.log(note.body);
 };

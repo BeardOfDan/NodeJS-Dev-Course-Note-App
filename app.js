@@ -10,9 +10,6 @@ const argv = yargs.argv;
 
 let command = argv._[0];
 
-console.log('Command: ' + command);
-console.log("Yargs", argv);
-
 switch(command) {
   case "add":
     let note = notes.addNote(argv.title, argv.body);
@@ -24,7 +21,9 @@ switch(command) {
     }
     break;
   case "list":
-    notes.getAll();
+    let allNotes = notes.getAll();
+    console.log(`Printing ${allNotes.length} note(s).`);
+    allNotes.forEach((note) => notes.logNote(note));
     break;
   case "read":
     let thisNote = notes.getNote(argv.title);
